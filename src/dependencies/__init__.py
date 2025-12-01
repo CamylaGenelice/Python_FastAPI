@@ -1,0 +1,1 @@
+from .depends import pegar_sessao
