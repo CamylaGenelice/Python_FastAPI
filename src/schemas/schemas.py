@@ -12,3 +12,20 @@ class UsuarioSchema(BaseModel):
     
     class Config: #
         from_attributes = True
+        
+class PedidoSchema(BaseModel):
+    
+    usuario: int
+    preco: float
+    item: str
+    
+    
+    class Config: 
+        from_attributes = True
+        
+class LoginSchema(BaseModel):
+    email: str
+    senha: str
+    
+    class Config:
+        from_attributes = True
