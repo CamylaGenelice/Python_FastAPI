@@ -29,3 +29,12 @@ class LoginSchema(BaseModel):
     
     class Config:
         from_attributes = True
+
+
+class AtualizarSenhaSchema(BaseModel):
+
+    email: str
+    senha_atual: str
+    nova_senha: str
+    class Config:
+        from_attributes = True

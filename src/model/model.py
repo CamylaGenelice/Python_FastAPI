@@ -50,7 +50,7 @@ class Pedido(Base):
     status = Column(ChoiceType(choices=STATUS_PEDIDOS))
     usuario = Column(Integer, ForeignKey('usuario.id'))
     preco = Column(Float, nullable=False)
-    itens = Column(String, nullable=False)
+    itens = Column(String)
     
     def __init__(self, usuario, status="PENDENTE", preco=0):
         self.usuario = usuario
