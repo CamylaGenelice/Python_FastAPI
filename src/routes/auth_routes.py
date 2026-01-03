@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from src.model.model import Usuario
 from src.dependencies.depends import pegar_sessao
 import bcrypt
-from src.schemas.schemas import UsuarioSchema, LoginSchema
+from src.schemas.schemas import UsuarioSchema, LoginSchema, AtualizarSenhaSchema
 from sqlalchemy.orm import Session
 from src.services.service import validar_email, validar_nome, validar_senha
 

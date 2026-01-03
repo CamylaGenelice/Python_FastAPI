@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from datetime import datetime
+from typing import Optional
 from typing import Optional
 
 # classe para garantir a integridade dos valores que vao ser passados dentro do banco
@@ -34,7 +36,26 @@ class LoginSchema(BaseModel):
 class AtualizarSenhaSchema(BaseModel):
 
     email: str
-    senha_atual: str
+    codigo: str
     nova_senha: str
     class Config:
         from_attributes = True
+    
+class SolicitarRecuperacaoSchema(BaseModel):
+    email: str
+
+    class Config:
+        from_attributes = True
+
+class VerificarCodigoSchema(BaseModel):
+    email: str
+    codigo: str
+
+    class Config:
+        from_attributes = True
+
+class SuccesMessageSchema(BaseModel):
+
+    class Config:
+        from_attributes = True
+

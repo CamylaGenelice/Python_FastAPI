@@ -1,4 +1,5 @@
-from sqlalchemy import create_engine, Column, String, Integer, Boolean, Float, ForeignKey
+from sqlalchemy import create_engine, Column, String, Integer, Boolean, Float, ForeignKey, DateTime
+from datetime import datetime, timedelta
 from sqlalchemy.orm import declarative_base
 from sqlalchemy_utils.types import ChoiceType
 from dotenv import load_dotenv
@@ -26,6 +27,9 @@ class Usuario(Base):
     senha = Column(String, nullable=False)
     admin = Column(Boolean, default=False)
     ativo = Column(Boolean, default=True)
+    codigo_recuperacao = Column(String, nullable=True)
+    codigo_expiracao = Column(DateTime, nullable=True)
+    tentativas_codigo = Column(Integer, default=0)
 
     def __init__(self, nome, email, senha, ativo=True, admin=False):
         self.nome = nome
@@ -33,6 +37,7 @@ class Usuario(Base):
         self.senha = senha
         self.ativo = ativo
         self.admin = admin
+        self.tentativas_codigo = 0
 
 
 class Pedido(Base):
