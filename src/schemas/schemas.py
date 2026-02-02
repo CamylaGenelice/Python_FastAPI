@@ -18,9 +18,7 @@ class UsuarioSchema(BaseModel):
 class PedidoSchema(BaseModel):
     
     usuario: int
-    preco: float
-    item: str
-    
+    preco: int
     
     class Config: 
         from_attributes = True
@@ -55,7 +53,7 @@ class VerificarCodigoSchema(BaseModel):
         from_attributes = True
 
 class SuccesMessageSchema(BaseModel):
-
+    message: str
     class Config:
         from_attributes = True
 

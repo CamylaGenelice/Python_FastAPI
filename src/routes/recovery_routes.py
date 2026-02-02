@@ -1,4 +1,4 @@
-from src.services.service import validar_email, validar_senha
+from src.services.itens_service import validar_email, validar_senha
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta

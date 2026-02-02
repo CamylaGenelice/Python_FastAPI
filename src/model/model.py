@@ -57,10 +57,11 @@ class Pedido(Base):
     preco = Column(Float, nullable=False)
     itens = Column(String)
     
-    def __init__(self, usuario, status="PENDENTE", preco=0):
+    def __init__(self, usuario, status="PENDENTE", preco=0, itens = 'padrao'):
         self.usuario = usuario
         self.preco = preco
         self.status = status
+        self.itens = itens
 
 
 class ItemPedido(Base):
@@ -77,3 +78,18 @@ class ItemPedido(Base):
         self.sabor = sabor
         self.quantidade = quantidade
         self.preco_unitario = preco_unitario
+
+class UserTokens(Base):
+    __tablename__ = 'user_token'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey('usuario.id'))
+    refresh_token = Column(String)
+    expires_at = Column(DateTime)
+    revoked = Column(Boolean)
+
+    def __init__(self, user, refresh, expires, revoked):
+        self.user_id = user
+        self.refresh_token = refresh
+        self.expires_at = expires
+        self.revoked = revoked

@@ -18,7 +18,7 @@ db_password = os.getenv('DB_PASSWORD')
 DATABASE_URL = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
 
 # Pega o caminho do proprio arquivo env.py -> os.path.dirname(__file__)
-# Esse comando adiciona o diretorio pai ao sys.path para permitir importacoes relativas
+# Esse comando adiciona o diretorio pai ao sys.path para permitir importacoes relativos
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 
 

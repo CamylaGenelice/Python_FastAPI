@@ -39,8 +39,10 @@ def validar_senha(senha: str) -> bool:
         if len(senha) < 7:
             #print('Tamanho da senha é menor do que o esperado')
             return False
+        
         if not padrao.match(senha):
             return False
+        
         return True
     
         
