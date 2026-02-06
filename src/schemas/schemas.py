@@ -15,21 +15,13 @@ class UsuarioSchema(BaseModel):
     class Config: #
         from_attributes = True
         
-class PedidoSchema(BaseModel):
-    
-    usuario: int
-    preco: int
-    
-    class Config: 
-        from_attributes = True
-        
 class LoginSchema(BaseModel):
     email: str
     senha: str
+    admin: bool
     
     class Config:
         from_attributes = True
-
 
 class AtualizarSenhaSchema(BaseModel):
 
@@ -57,3 +49,27 @@ class SuccesMessageSchema(BaseModel):
     class Config:
         from_attributes = True
 
+# Parte dos pedidos e itens
+class PedidoSchema(BaseModel):
+    
+    usuario: int
+    preco: int
+    
+    class Config: 
+        from_attributes = True
+        
+
+class SaboresSchema(BaseModel):
+
+    sabor: str
+
+    class Config:
+        from_attributes = True
+
+class AtualizarSaborSchema(BaseModel):
+
+    id: int
+    sabor: str
+
+    class Config:
+        from_attributes = True

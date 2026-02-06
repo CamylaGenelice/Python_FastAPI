@@ -56,7 +56,10 @@ class UsuarioService:
             ):
                 raise Exception('Email ou senha inválidos')
             
-            payload = {'sub':str(usuario.id)}
+            payload = {
+                'sub':str(usuario.id),
+                'admin': usuario.admin
+                 }
             token = criar_token(dados=payload)
             return token
             

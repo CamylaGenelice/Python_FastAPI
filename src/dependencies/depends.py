@@ -16,7 +16,8 @@ def pegar_sessao():
         session.close()
 
 # -> Usuario: Isso é um Type Hint (Dica de Tipo). Indica que, no final de tudo, esta função vai devolver um objeto do tipo Usuario
-def usuario_autenticado(token:str = Depends(oauth2_scheme), session: Session = Depends(pegar_sessao)
+
+def usuario_autenticado(token:str = Depends(oauth2_scheme), session: Session = Depends(pegar_sessao) # vai ser utilizado quando o for necesseario saber se o usuario esta logado, so é permitido ususarios logados para fazer pedidos
 ) -> Usuario:
     
     payload = validar_token(token)
