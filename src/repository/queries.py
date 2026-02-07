@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
-from src.model.model import Usuario,Pedido,ItemPedido
+from src.model.model import Usuario,Pedido,ItemPedido, Produto
 
 
 '''
@@ -45,5 +45,10 @@ class QueriesRepository:
     def criar_item_pedido(self, item_pedido: ItemPedido) -> ItemPedido:
        return self._salvar(item_pedido)
     
+    def criar_pizza(self, pizza: Produto):
+        return self._salvar(pizza)
+    
+    def atualizar_nome_pizza(self, pizza: Produto):
+        ...
     
 

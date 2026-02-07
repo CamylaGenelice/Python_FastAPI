@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
-from typing import Optional
+
 
 # classe para garantir a integridade dos valores que vao ser passados dentro do banco
 class UsuarioSchema(BaseModel):
@@ -49,27 +49,4 @@ class SuccesMessageSchema(BaseModel):
     class Config:
         from_attributes = True
 
-# Parte dos pedidos e itens
-class PedidoSchema(BaseModel):
-    
-    usuario: int
-    preco: int
-    
-    class Config: 
-        from_attributes = True
-        
 
-class SaboresSchema(BaseModel):
-
-    sabor: str
-
-    class Config:
-        from_attributes = True
-
-class AtualizarSaborSchema(BaseModel):
-
-    id: int
-    sabor: str
-
-    class Config:
-        from_attributes = True

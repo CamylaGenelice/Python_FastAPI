@@ -5,7 +5,7 @@ from src.utils.checks_utils import validar_email, validar_nome, validar_senha
 from src.security.auth_jwt import criar_token,validar_token
 import bcrypt
 
-
+# Ao declarar dados: UsuarioSchema, você está usando type hinting (anotação de tipo) para indicar que a função espera receber um objeto validado desse tipo.
 class UsuarioService:
 
     def __init__(self, repository:QueriesRepository):
@@ -34,13 +34,13 @@ class UsuarioService:
         if usuario_existe:
             raise Exception ('Este email já está em uso')
         
-        novo_usuario = Usuario(
+        novo_usuario = UsuarioSchema(
             nome=dados.nome,
             email=dados.email,
             senha=senha_hash,
             ativo=dados.ativo,
             admin=dados.admin
-            )
+        )
 
         return self.repository.criar_usuario(novo_usuario)
     

@@ -69,7 +69,7 @@ class ItemPedido(Base):
      
     id = Column(Integer, primary_key=True, autoincrement=True) 
     quantidade = Column(Integer, nullable=False)
-    sabor = Column(Integer, ForeignKey('sabor.id'))
+    sabor = Column(Integer, ForeignKey('produto.id'))
     preco_unitario = Column(Float, nullable=False)
     pedido = Column(Integer, ForeignKey('pedido.id'))
     
@@ -80,8 +80,8 @@ class ItemPedido(Base):
         self.preco_unitario = preco_unitario
 
 
-class SaborPizza(Base):
-    __tablename__ = 'sabor'
+class Produto(Base):
+    __tablename__ = 'produto'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     sabor = Column(String, nullable=False)
