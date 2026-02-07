@@ -19,4 +19,4 @@ class ProdutoPizza:
             nome=dados.nome
         )
 
-        return self.repository
+        return self.repository.atualizar_nome_pizza(nome)

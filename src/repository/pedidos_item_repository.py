@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
-from src.model.model import Usuario,Pedido,ItemPedido
+from src.model.model import Pedido,ItemPedido
 
 
 '''
@@ -25,22 +25,8 @@ class QueriesRepository:
             raise e
 
 
-    def buscar_email(self, email: str) -> Usuario:
-        try:
-            return(
-                self.session.query(Usuario).filter(Usuario.email == email).first()
-            )
-        except SQLAlchemyError as e:
-
-            self.session.rollback()
-            print(f'Erro ao buscar email',{e})
-            raise e
+    def criar_pedido(self, pedido:Pedido) -> Pedido:
+        return self._salvar(pedido)
     
-    def criar_usuario(self, usuario:Usuario) -> Usuario:
-       return self._salvar(usuario)
-    
-   
-    
-    
-    
-
+    def criar_item_pedido(self, item_pedido: ItemPedido) -> ItemPedido:
+       return self._salvar(item_pedido)
