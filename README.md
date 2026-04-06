@@ -143,7 +143,7 @@ http://localhost:8000/docs
 
 
 ## 👨‍💻 Autor
-# Desenvolvido por Camyla Genelice
+#### Desenvolvido por Camyla Genelice
 Projeto desenvolvido para fins de estudo e prática de desenvolvimento backend com Python.
 
 ---
